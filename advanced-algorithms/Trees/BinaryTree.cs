@@ -4,6 +4,7 @@
     {
         public BinaryTreeNode<T> Head { get; set; }
 
+
         public void SimpleInsertNode(T value)
         {
             if (Head == null)
@@ -49,44 +50,53 @@
 
         } 
 
-        public void InOrderTraversal() {
-            InOrderTraversalHelper(Head);
+        public List<T> InOrderTraversal() {
+            List<T> Result = new List<T>();
+            InOrderTraversalHelper(Head, Result);
+            return Result;
         }
 
-        public void InOrderTraversalHelper(BinaryTreeNode<T> currentNode)
+        public void InOrderTraversalHelper(BinaryTreeNode<T> currentNode, List<T> result)
         {
             if(currentNode != null)
             {
-                InOrderTraversalHelper(currentNode.Left);
+                InOrderTraversalHelper(currentNode.Left, result);
                 Console.WriteLine(currentNode.Value);
-                InOrderTraversalHelper(currentNode.Right);
+                result.Add(currentNode.Value);
+                InOrderTraversalHelper(currentNode.Right, result);
             }
         }
 
-        public void PreOrderTraversal() {
-            PreOrderTraversalHelper(Head);
+        public List<T> PreOrderTraversal() {
+            List<T> Result = new List<T>();
+            PreOrderTraversalHelper(Head, Result);
+            return Result;
         }
 
-        public void PreOrderTraversalHelper(BinaryTreeNode<T> currentNode) {
+        public void PreOrderTraversalHelper(BinaryTreeNode<T> currentNode, List<T> result) {
             if (currentNode != null)
             {
                 Console.WriteLine(currentNode.Value);
-                PreOrderTraversalHelper(currentNode.Left);
-                PreOrderTraversalHelper(currentNode.Right);
+                result.Add(currentNode.Value);
+                PreOrderTraversalHelper(currentNode.Left, result);
+                PreOrderTraversalHelper(currentNode.Right, result);
             }
         }
 
-        public void PostOrderTraveral() {
-            PostOrderTraversalHelper(Head);
+        public List<T> PostOrderTraveral() {
+            List<T> Result = new List<T>();
+            PostOrderTraversalHelper(Head, Result);
+            return Result;
         }
 
-        public void PostOrderTraversalHelper(BinaryTreeNode<T> currentNode)
+        public void PostOrderTraversalHelper(BinaryTreeNode<T> currentNode, List<T> result)
         {
             if (currentNode != null)
             {
-                PostOrderTraversalHelper(currentNode.Left);
-                PostOrderTraversalHelper(currentNode.Right);
+                PostOrderTraversalHelper(currentNode.Left, result);
+                PostOrderTraversalHelper(currentNode.Right, result);
                 Console.WriteLine(currentNode.Value);
+                result.Add(currentNode.Value);
             }
         }
 

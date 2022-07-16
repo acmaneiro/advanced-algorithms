@@ -1,18 +1,65 @@
 ﻿@page "/counter"
+@using advanced_algorithms.Trees
 
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
+<h1>Tree</h1>
 
 <p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="AddTreeNode">Add tree node</button>
+<button class="btn btn-primary" @onclick="Clean">Clean</button>
+
+<h2>In Order</h2>
+<div>
+    @if (inOrderResult != string.Empty)
+    {
+        <p>@inOrderResult</p>    
+    }
+    
+</div>
+<h2>Pre Order</h2>
+<div>
+    @if (preOrderResult != string.Empty)
+    {
+        <p>@preOrderResult</p>    
+    }
+</div>
+<h2>Post Order</h2>
+<div>
+    @if (postOrderResult != string.Empty)
+    {
+        <p>@postOrderResult</p>    
+    }
+</div>
 
 @code {
     private int currentCount = 0;
+    private string inOrderResult = string.Empty;
+    private string preOrderResult = string.Empty;
+    private string postOrderResult = string.Empty;
+    private BinaryTree<int> Tree = new BinaryTree<int>();
 
-    private void IncrementCount()
+    private void Clean()
+    {
+        currentCount = 0;
+        inOrderResult = string.Empty;
+        preOrderResult = string.Empty;
+        postOrderResult = string.Empty;
+        Tree = new BinaryTree<int>();
+    }
+
+    private void AddTreeNode()
     {
         currentCount++;
-    }
+        Tree.SimpleInsertNode(currentCount);
+        var inOrder = Tree.InOrderTraversal();
+        inOrderResult = string.Join(',', inOrder);
+
+        var pre = Tree.PreOrderTraversal();
+        preOrderResult = string.Join(',', pre);
+
+        var post = Tree.PostOrderTraveral();
+        postOrderResult = string.Join(',', post);
+    } 
 }
