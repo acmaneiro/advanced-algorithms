@@ -111,7 +111,19 @@
             return IsCompleteBinaryTreeHelper(Head);
         }
 
-        public bool IsFullBinaryTree() { return false; }
+        public bool IsFullBinaryTree() {
+            return IsFullBinaryTreeHelper(Head);
+        }
+
+        public bool IsFullBinaryTreeHelper(BinaryTreeNode<T> currentNode) {
+            if (currentNode == null) return true;
+
+            if (currentNode.Left == null && currentNode.Right != null) return false;
+
+            if (currentNode.Left != null && currentNode.Right == null) return false;
+
+            return IsFullBinaryTreeHelper(currentNode.Left) && IsFullBinaryTreeHelper(currentNode.Right);
+        }
 
         public bool IsPerfectBinaryTree() { return false; }
     }

@@ -48,7 +48,7 @@ myTree.SimpleInsertNode(11);
 //myTree.PreOrderTraversal();
 //Console.WriteLine("Post order traversal");
 //myTree.PostOrderTraveral();
-Console.WriteLine(myTree.IsCompleteBinaryTree());
+Console.WriteLine(myTree.IsFullBinaryTree());
 
 var myTreeIncomplete = new BinaryTree<int>();
 myTreeIncomplete.Head = new BinaryTreeNode<int>
@@ -71,7 +71,7 @@ Console.WriteLine("Pre order traversal");
 myTreeIncomplete.PreOrderTraversal();
 Console.WriteLine("Post order traversal");
 myTreeIncomplete.PostOrderTraveral();
-Console.WriteLine(myTreeIncomplete.IsCompleteBinaryTree());
+Console.WriteLine(myTreeIncomplete.IsFullBinaryTree());
 
 
 app.Run();
