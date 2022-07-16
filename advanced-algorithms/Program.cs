@@ -42,7 +42,10 @@ myTree.SimpleInsertNode(9);
 myTree.SimpleInsertNode(10);
 myTree.SimpleInsertNode(11);
 
+Console.WriteLine("In order traversal");
 myTree.InOrderTraversal();
+Console.WriteLine("Pre order traversal");
+myTree.PreOrderTraversal();
 
 
 app.Run();

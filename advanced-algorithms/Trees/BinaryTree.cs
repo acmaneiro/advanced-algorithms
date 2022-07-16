@@ -64,7 +64,18 @@
             }
         }
 
-        public void PreOrderTraversal() { }
+        public void PreOrderTraversal() {
+            PreOrderTraversalHelper(Head);
+        }
+
+        public void PreOrderTraversalHelper(BinaryTreeNode<T> currentNode) {
+            if (currentNode != null)
+            {
+                Console.WriteLine(currentNode.Value);
+                PreOrderTraversalHelper(currentNode.Left);
+                PreOrderTraversalHelper(currentNode.Right);
+            }
+        }
 
         public void PostOrderTraveral() { }
 
