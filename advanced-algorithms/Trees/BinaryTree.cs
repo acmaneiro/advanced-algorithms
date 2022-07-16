@@ -90,7 +90,20 @@
             }
         }
 
-        public bool IsCompleteBinaryTree() { return false; }
+
+        public bool IsCompleteBinaryTreeHelper(BinaryTreeNode<T> currentNode)
+        {
+            if(currentNode == null)  return true;
+
+            if (currentNode.Left == null && currentNode.Right != null) return false;
+
+            return IsCompleteBinaryTreeHelper(currentNode.Left) && IsCompleteBinaryTreeHelper(currentNode.Right);
+        }
+
+        public bool IsCompleteBinaryTree() {
+
+            return IsCompleteBinaryTreeHelper(Head);
+        }
 
         public bool IsFullBinaryTree() { return false; }
 
