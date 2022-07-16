@@ -77,7 +77,19 @@
             }
         }
 
-        public void PostOrderTraveral() { }
+        public void PostOrderTraveral() {
+            PostOrderTraversalHelper(Head);
+        }
+
+        public void PostOrderTraversalHelper(BinaryTreeNode<T> currentNode)
+        {
+            if (currentNode != null)
+            {
+                PostOrderTraversalHelper(currentNode.Left);
+                PostOrderTraversalHelper(currentNode.Right);
+                Console.WriteLine(currentNode.Value);
+            }
+        }
 
         public bool IsCompleteBinaryTree() { return false; }
 

@@ -46,6 +46,7 @@ Console.WriteLine("In order traversal");
 myTree.InOrderTraversal();
 Console.WriteLine("Pre order traversal");
 myTree.PreOrderTraversal();
-
+Console.WriteLine("Post order traversal");
+myTree.PostOrderTraveral();
 
 app.Run();
