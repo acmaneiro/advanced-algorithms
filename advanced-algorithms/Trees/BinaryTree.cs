@@ -18,36 +18,35 @@
 
         public void SimpleInsertNode(T value, BinaryTreeNode<T> targetNode)
         {
-            if (targetNode.Left == null)
+            var current = new Queue<BinaryTreeNode<T>>();
+            var next = new Queue<BinaryTreeNode<T>>();
+
+            current.Enqueue(targetNode);
+
+            while (current.Count > 0)
             {
-                targetNode.Left = new BinaryTreeNode<T> { Value = value };
-            }
-            else
-            {
-                if (targetNode.Right == null)
+                var item = current.Dequeue();
+                if(item.Left == null)
                 {
-                    targetNode.Right = new BinaryTreeNode<T> { Value = value };
+                    item.Left = new BinaryTreeNode<T> { Value = value };
+                    return;
+                }else if(item.Right == null)
+                {
+                    item.Right = new BinaryTreeNode<T> { Value = value };
+                    return;
                 }
                 else
                 {
-                    if (targetNode.Left.Left == null || targetNode.Left.Right == null)
-                    {
-                        SimpleInsertNode(value, targetNode.Left);
-                    }
-                    else
-                    {
-                        if (targetNode.Right.Left == null || targetNode.Right.Right == null)
-                        {
-                            SimpleInsertNode(value, targetNode.Right);
-                        }
-                        else
-                        {
-                            SimpleInsertNode(value, targetNode.Left.Left);
-                        }
-                    }
+                    next.Enqueue(item.Left);
+                    next.Enqueue(item.Right);
 
+                    if(current.Count == 0)
+                    {
+                        current = next;
+                    }
                 }
             }
+
         } 
 
         public void InOrderTraversal() {
