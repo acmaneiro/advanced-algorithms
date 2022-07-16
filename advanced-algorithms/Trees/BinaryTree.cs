@@ -50,7 +50,19 @@
             }
         } 
 
-        public void InOrderTraversal() { }
+        public void InOrderTraversal() {
+            InOrderTraversalHelper(Head);
+        }
+
+        public void InOrderTraversalHelper(BinaryTreeNode<T> currentNode)
+        {
+            if(currentNode != null)
+            {
+                InOrderTraversalHelper(currentNode.Left);
+                Console.WriteLine(currentNode.Value);
+                InOrderTraversalHelper(currentNode.Right);
+            }
+        }
 
         public void PreOrderTraversal() { }
 

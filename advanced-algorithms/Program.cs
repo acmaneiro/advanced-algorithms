@@ -42,5 +42,7 @@ myTree.SimpleInsertNode(9);
 myTree.SimpleInsertNode(10);
 myTree.SimpleInsertNode(11);
 
+myTree.InOrderTraversal();
+
 
 app.Run();
