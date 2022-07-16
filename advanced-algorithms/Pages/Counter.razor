@@ -31,6 +31,12 @@
     {
         <p>@postOrderResult</p>    
     }
+
+</div>
+<div>
+    <p>IsCompleteBinaryTree: @isCompleteBinaryTree</p>
+    <p>IsFullBinaryTreeHelper: @isFullBinaryTreeHelper</p>
+    <p>IsPerfectBinaryTree: @isPerfectBinaryTree</p>
 </div>
 
 @code {
@@ -38,6 +44,9 @@
     private string inOrderResult = string.Empty;
     private string preOrderResult = string.Empty;
     private string postOrderResult = string.Empty;
+    private bool isCompleteBinaryTree = false;
+    private bool isFullBinaryTreeHelper = false;
+    private bool isPerfectBinaryTree = false;
     private BinaryTree<int> Tree = new BinaryTree<int>();
 
     private void Clean()
@@ -46,6 +55,9 @@
         inOrderResult = string.Empty;
         preOrderResult = string.Empty;
         postOrderResult = string.Empty;
+        isCompleteBinaryTree = false;
+        isFullBinaryTreeHelper = false;
+        isPerfectBinaryTree = false;
         Tree = new BinaryTree<int>();
     }
 
@@ -61,5 +73,9 @@
 
         var post = Tree.PostOrderTraveral();
         postOrderResult = string.Join(',', post);
+
+        isCompleteBinaryTree = Tree.IsCompleteBinaryTree();
+        isFullBinaryTreeHelper = Tree.IsFullBinaryTree();
+        isPerfectBinaryTree = Tree.IsPerfectBinaryTree();
     } 
 }
