@@ -97,6 +97,12 @@
 
             if (currentNode.Left == null && currentNode.Right != null) return false;
 
+            if (currentNode.Left != null && currentNode.Right == null)
+            {
+                if (currentNode.Left.Left != null || currentNode.Left.Right != null)
+                    return false;
+            }
+
             return IsCompleteBinaryTreeHelper(currentNode.Left) && IsCompleteBinaryTreeHelper(currentNode.Right);
         }
 

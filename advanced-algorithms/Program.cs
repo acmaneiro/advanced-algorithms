@@ -42,13 +42,36 @@ myTree.SimpleInsertNode(9);
 myTree.SimpleInsertNode(10);
 myTree.SimpleInsertNode(11);
 
-Console.WriteLine(myTree.IsCompleteBinaryTree());
-
 //Console.WriteLine("In order traversal");
 //myTree.InOrderTraversal();
 //Console.WriteLine("Pre order traversal");
 //myTree.PreOrderTraversal();
 //Console.WriteLine("Post order traversal");
 //myTree.PostOrderTraveral();
+Console.WriteLine(myTree.IsCompleteBinaryTree());
+
+var myTreeIncomplete = new BinaryTree<int>();
+myTreeIncomplete.Head = new BinaryTreeNode<int>
+{
+    Value = 1,
+    Left = new BinaryTreeNode<int> {
+        Value = 2,
+        Left = new BinaryTreeNode<int>
+        {
+            Value = 4,
+            Left = new BinaryTreeNode<int> { Value = 5 },
+            Right = new BinaryTreeNode<int> { Value = 6 },
+        }
+    },
+    Right = new BinaryTreeNode<int> { Value = 3},
+};
+Console.WriteLine("In order traversal");
+myTreeIncomplete.InOrderTraversal();
+Console.WriteLine("Pre order traversal");
+myTreeIncomplete.PreOrderTraversal();
+Console.WriteLine("Post order traversal");
+myTreeIncomplete.PostOrderTraveral();
+Console.WriteLine(myTreeIncomplete.IsCompleteBinaryTree());
+
 
 app.Run();
