@@ -31,5 +31,32 @@
                 Console.WriteLine("---------");
             }
         }
+
+        public void DFSearchGroupsCounter()
+        {
+            Dictionary<T, Boolean> visitados = new Dictionary<T, bool>();
+            var totalGroups = 0;
+            foreach (KeyValuePair<T, List<T>> entry in AdjList)
+            { 
+                if(!visitados.ContainsKey(entry.Key))
+                {
+                    SearchAdj(entry.Key, visitados);
+                    totalGroups++;
+                }               
+            }
+            Console.WriteLine("Resultado {0}", totalGroups);
+        }
+
+        public void SearchAdj(T value, Dictionary<T, Boolean> visitados)
+        {
+            if (visitados.ContainsKey(value))
+                return;
+
+            visitados.Add(value, true);
+            foreach (var entry in AdjList[value])
+            {                
+                SearchAdj(entry, visitados);
+            }
+        }
     }
 }

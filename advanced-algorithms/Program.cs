@@ -36,12 +36,22 @@ myGraph.AddVert(1);
 myGraph.AddVert(2);
 myGraph.AddVert(3);
 myGraph.AddVert(4);
+myGraph.AddVert(5);
+myGraph.AddVert(6);
+myGraph.AddVert(7);
+myGraph.AddVert(8);
 
-myGraph.AddEdge(1, 2);
 myGraph.AddEdge(1, 3);
-myGraph.AddEdge(3, 4);
+myGraph.AddEdge(3, 6);
+myGraph.AddEdge(3, 7);
+myGraph.AddEdge(3, 8);
+myGraph.AddEdge(2, 4);
+
+
 
 myGraph.Print();
+Console.WriteLine("-------------------");
+myGraph.DFSearchGroupsCounter();
 
 
 myTree.SimpleInsertNode(1);
