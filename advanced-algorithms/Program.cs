@@ -30,6 +30,20 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 var myTree = new BinaryTree<int>();
+var myGraph = new Graph<int>();
+
+myGraph.AddVert(1);
+myGraph.AddVert(2);
+myGraph.AddVert(3);
+myGraph.AddVert(4);
+
+myGraph.AddEdge(1, 2);
+myGraph.AddEdge(1, 3);
+myGraph.AddEdge(3, 4);
+
+myGraph.Print();
+
+
 myTree.SimpleInsertNode(1);
 myTree.SimpleInsertNode(2);
 myTree.SimpleInsertNode(3);

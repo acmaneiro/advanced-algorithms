@@ -135,6 +135,16 @@
             return IsFullBinaryTreeHelper(currentNode.Left) && IsFullBinaryTreeHelper(currentNode.Right);
         }
 
-        public bool IsPerfectBinaryTree() { return false; }
+
+        public bool IsPerfectNode(BinaryTreeNode<T> targetNode)
+        {
+            if(targetNode == null) return true;
+            return false;
+
+         }
+        public bool IsPerfectBinaryTree(BinaryTreeNode<T> targetNode) {
+
+            return false;
+        }
     }
 }
